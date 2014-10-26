@@ -8,20 +8,23 @@
  *
  * Main module of the application.
  */
-angular
-  .module('firebaseApp', [
+angular.module('firebaseApp', [
     'ngAnimate',
     'ngCookies',
     'ngResource',
     'ngRoute',
     'ngSanitize',
-    'ngTouch'
+    'ngTouch',
+    'firebase'
   ])
+
+
+  .constant('fb_url', 'https://testhis.firebaseio.com/broadcasts')
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
         templateUrl: 'views/main.html',
-        controller: 'MainCtrl'
+        controller: 'broadcastCtrl'
       })
       .when('/about', {
         templateUrl: 'views/about.html',
@@ -30,4 +33,4 @@ angular
       .otherwise({
         redirectTo: '/'
       });
-  });
+  })
